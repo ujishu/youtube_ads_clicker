@@ -11,16 +11,19 @@ import time
 #profile.update_preferences()
 
 #Set proxy for PhantomJS
-service_args = ['--proxy=149.56.172.38:11219', '--proxy-type=socks5','--ignore-ssl-errors=true']
-driver = webdriver.PhantomJS(executable_path='/home/ubuntu/phantomjs-2.1.1-linux-x86_64/bin/phantomjs' ,service_args=service_args)
+service_args = ['--proxy=176.37.38.90:80', '--proxy-type=http','--ignore-ssl-errors=true']
+driver = webdriver.PhantomJS(executable_path='/home/ujishu/phantomjs-2.1.1-linux-x86_64/bin/phantomjs' ,service_args=service_args)
 driver.get('http://httpbin.org/ip')
+driver.save_screenshot('/home/ujishu/httpbin.org.png')
 print(driver.page_source.encode('utf-8'))
 
 #driver = webdriver.Firefox(firefox_profile=profile)
 #driver.set_window_size(1120, 550)
-driver.get('https://www.youtube.com/watch?v=Q86vSrZdHzw')
+driver.get('https://www.youtube.com/watch?v=R6J3S18ewyE')
 #driver.implicitly_wait(17)
-time.sleep(16)
+time.sleep(17)
+print('time.sleep complete')
+driver.save_screenshot('/home/ujishu/video.png')	
 #click on Skip button (not work)
 #if driver.find_element_by_css_selector('.videoAdUiSkipContainer .html5-stop-propagation'):
 #	skip = driver.find_element_by_css_selector('.videoAdUiSkipContainer .html5-stop-propagation').click()
@@ -28,18 +31,34 @@ time.sleep(16)
 # need more test. not all ads clickable 
 # Find and click ads on page and video
 try:
-  #ad at right side
-	frame1 = driver.find_element_by_id('google_ads_frame1').click()
-	print('Found ad at right side')
-except:
-	print('ad at right side not found')
-
-try:
 #ad on video
 	imageContainer = driver.find_element_by_css_selector('.image-container').click()
 	print('Found ad on video')
 except:
-	print('ad on video not found')
+	print('ad on video not found, find_element_by_css_selector')
+time.sleep(3)
+
+try:
+#ad on video
+	imageContainer = driver.find_element_by_class_name('image-container').click()
+	print('Found ad on video')
+except:
+	print('ad on video not found, find_element_by_class_name')
+time.sleep(3)
+
+try:
+  #ad at right side, frame1
+	frame1 = driver.find_element_by_id('google_ads_frame1').click()
+	print('Found ad at right side')
+except:
+	print('ad at right side not found, find_element_by_id(google_ads_frame1')
+
+try:
+  #ad at right side, frame2
+	frame2 = driver.find_element_by_id('google_ads_frame2').click()
+	print('Found ad at right side')
+except:
+	print('ad at right side not found, find_element_by_id(google_ads_frame2')
 
 try:
 	textTitle = driver.find_element_by_css_selector('.text-title').click()
