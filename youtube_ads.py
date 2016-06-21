@@ -1,9 +1,12 @@
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 import time
-from xvfbwrapper import Xvfb #import virtual display
-vdisplay = Xvfb()
-vdisplay.start()
+#from xvfbwrapper import Xvfb #import virtual display
+#vdisplay = Xvfb()
+#vdisplay.start()
+from pyvirtualdisplay import Display
+display = Display(visible=0, size=(1024, 768))
+display.start()
 
 #Proxy search 
 
@@ -91,7 +94,7 @@ except:
 
 driver.quit()
 print('Driver.quit')
-vdisplay.stop()
+display.stop()
 
 #################################################################
 
