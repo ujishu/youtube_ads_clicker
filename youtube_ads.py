@@ -1,15 +1,12 @@
 from selenium import webdriver
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+#from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 import time
 from xvfbwrapper import Xvfb
 
-vdisplay = Xvfb()
+vdisplay = Xvfb(width=1280, height=740, colordepth=16)
 vdisplay.start()
 
-#from pyvirtualdisplay import Display
-#display = Display(visible=0, size=(1024, 768))
-#display.start()
-
+##########################################################
 #Proxy search 
 
 #Set proxy for Firefox
@@ -43,13 +40,12 @@ vdisplay.start()
 #driver.save_screenshot('/home/ujishu/httpbin.org.png')
 #print(driver.page_source.encode('utf-8'))
 driver = webdriver.Firefox()
-#driver.set_window_size(1024, 768)
-driver.get('https://www.youtube.com/watch?v=_BI82YaqVU0')
+print('webdriver started')
+driver.get('https://www.youtube.com/watch?v=zHdwaQ5Zc0E')
 #driver.get('http://www.i.ua/')
-#driver.implicitly_wait(17)
+
 time.sleep(20)
-#print('time.sleep complete')
-#driver.save_screenshot('/home/ujishu/video.png')
+driver.save_screenshot('/home/eugenes/youtube_ads_clicker/20sec.png')
 
 #click on Skip button (not work)
 #if driver.find_element_by_css_selector('.videoAdUiSkipContainer .html5-stop-propagation'):
@@ -94,10 +90,11 @@ try:
 except:
 	print('text-title not found')
 
+driver.save_screenshot('/home/eugenes/youtube_ads_clicker/beforeExit.png')
 
 driver.quit()
 print('Driver.quit')
-display.stop()
+vdisplay.stop()
 print('display.stop()')
 
 
