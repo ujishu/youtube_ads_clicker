@@ -1,12 +1,14 @@
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 import time
-#from xvfbwrapper import Xvfb #import virtual display
-#vdisplay = Xvfb()
-#vdisplay.start()
-from pyvirtualdisplay import Display
-display = Display(visible=0, size=(1024, 768))
-display.start()
+from xvfbwrapper import Xvfb
+
+vdisplay = Xvfb()
+vdisplay.start()
+
+#from pyvirtualdisplay import Display
+#display = Display(visible=0, size=(1024, 768))
+#display.start()
 
 #Proxy search 
 
@@ -47,14 +49,15 @@ driver.get('https://www.youtube.com/watch?v=_BI82YaqVU0')
 #driver.implicitly_wait(17)
 time.sleep(20)
 #print('time.sleep complete')
-driver.save_screenshot('/home/ujishu/video.png')
+#driver.save_screenshot('/home/ujishu/video.png')
 
 #click on Skip button (not work)
 #if driver.find_element_by_css_selector('.videoAdUiSkipContainer .html5-stop-propagation'):
 #	skip = driver.find_element_by_css_selector('.videoAdUiSkipContainer .html5-stop-propagation').click()
 
 # need more test. not all ads clickable 
-# Find and click ads on page and video#############################################################
+#############################################################
+############### Find and click ads on page and video #######################
 try:
 #ad on video
 	imageContainer = driver.find_element_by_css_selector('.image-container').click()
@@ -95,9 +98,10 @@ except:
 driver.quit()
 print('Driver.quit')
 display.stop()
+print('display.stop()')
+
 
 #################################################################
-
 
 #if driver.is_element_present_by_css('.flash-container'):
 #	vid_ad2 = driver.find_by_css('.flash-container').first.click()
