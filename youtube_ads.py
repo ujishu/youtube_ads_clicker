@@ -1,5 +1,9 @@
+#Run script:
+#DISPLAY=:99 xvfb-run python youtube_ads.py
+
 from selenium import webdriver
 #from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 import time
 from xvfbwrapper import Xvfb
 
@@ -39,9 +43,14 @@ vdisplay.start()
 #driver.get('http://httpbin.org/ip')
 #driver.save_screenshot('/home/ujishu/httpbin.org.png')
 #print(driver.page_source.encode('utf-8'))
-driver = webdriver.Firefox()
+
+#binary = FirefoxBinary('/usr/lib64/tor-browser_en-US/Browser/firefox')
+#binary = FirefoxBinary('/usr/lib64/firefox/firefox')
+#driver = webdriver.Firefox("""firefox_binary=binary, timeout=30,""" executable_path='/usr/lib64/tor-browser_en-US/Browser/firefox')
+driver = webdriver.Firefox(executable_path='/usr/lib64/tor-browser_en-US/Browser/firefox')
 print('webdriver started')
 driver.get('https://www.youtube.com/watch?v=zHdwaQ5Zc0E')
+
 #driver.get('http://www.i.ua/')
 
 time.sleep(20)
