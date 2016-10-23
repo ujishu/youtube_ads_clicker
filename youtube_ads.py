@@ -21,24 +21,6 @@ vdisplay.start()
 #profile.update_preferences()
 #driver = webdriver.Firefox(firefox_profile=profile)
 
-############## PhantomJS ################################
-#PhantomJS webdriver conf.
-#dcap = dict(DesiredCapabilities.PHANTOMJS)
-#dcap["phantomjs.page.settings.userAgent"] = (
-#	"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/53 "
-#    "(KHTML, like Gecko) Chrome/15.0.87"
-#)
-
-#Set proxy for PhantomJS
-#service_args = ['--proxy=176.37.38.90:80', '--proxy-type=http','--ignore-ssl-errors=true', '--ssl-protocol=any']
-#service_args = []
-#driver = webdriver.PhantomJS(
-#	executable_path='/home/ujishu/phantomjs-2.1.1-linux-x86_64/bin/phantomjs' 
-#	,service_args=service_args
-#	,desired_capabilities=dcap
-#)
-#########################################################
-
 ####### IP checking ######
 #driver.get('http://httpbin.org/ip')
 #driver.save_screenshot('/home/ujishu/httpbin.org.png')
