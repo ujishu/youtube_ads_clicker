@@ -1,6 +1,11 @@
 #Run script:
 #DISPLAY=:99 xvfb-run python youtube_ads.py
 
+# This is added in branch v0.1
+import os
+import sys
+######
+
 from selenium import webdriver
 #from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
