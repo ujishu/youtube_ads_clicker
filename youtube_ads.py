@@ -19,12 +19,12 @@ vdisplay.start()
 #Proxy search 
 
 #Set proxy for Firefox
-#profile = webdriver.FirefoxProfile()
-#profile.set_preference("network.proxy.type", 1)
+profile = webdriver.FirefoxProfile()
+profile.set_preference("network.proxy.type", 1)
 #profile.set_preference("network.proxy.http", '79.188.42.46')
 #profile.set_preference("network.proxy.http_port", '8080')
-#profile.update_preferences()
-#driver = webdriver.Firefox(firefox_profile=profile)
+profile.update_preferences()
+driver = webdriver.Firefox(firefox_profile=profile)
 
 ####### IP checking ######
 #driver.get('http://httpbin.org/ip')
