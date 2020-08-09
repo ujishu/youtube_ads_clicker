@@ -3,6 +3,7 @@ from selenium import webdriver
 import time
 import os
 import sys
+import Flask
 from xvfbwrapper import XvfbXXX
 
 vdisplay = Xvfb()
