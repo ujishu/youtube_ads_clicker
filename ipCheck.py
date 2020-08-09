@@ -16,6 +16,9 @@ print('Driver.quit')
 display.stop()
 print('display.stop()')
 
+def CAT():
+    pass
+
 # Commit v0.1
 # TEST
 #
