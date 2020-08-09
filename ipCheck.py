@@ -3,7 +3,7 @@ from selenium import webdriver
 import time
 import os
 import sys
-from xvfbwrapper import Xvfb
+from xvfbwrapper import XvfbXXX
 
 vdisplay = Xvfb()
 vdisplay.start()
